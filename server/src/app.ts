@@ -55,6 +55,7 @@ class App {
     this.app.set('views', `${__dirname}/views`);
     this.app.set('view engine', 'ejs');
     this.app.engine('html', require('ejs').renderFile);
+    this.app.use(express.static(`${__dirname}/public`));
   }
 
   private initMiddlewares() {
