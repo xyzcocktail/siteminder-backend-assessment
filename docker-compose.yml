@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  server:
+    container_name: siteminder-server
+    build:
+      context: ./server
+    environment:
+      NODE_ENV: development
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/usr/src/siteminder/server
+      - /usr/src/siteminder/server/node_modules
+
+#  client:
+#    container_name: siteminder-client
+#    build:
+#      context: ./client
+#    environment:
+#      NODE_ENV: development
+#    ports:
+#      - "3000:3000"
+#    stdin_open: true
+#    volumes:
+#      - ./client:/usr/src/siteminder/client
+#      - /usr/src/siteminder/client/node_modules

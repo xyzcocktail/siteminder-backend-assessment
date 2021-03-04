@@ -10,7 +10,7 @@ export default class MailService {
   reTry: number;
 
   constructor(reqBody: MailBody) {
-    this.reTry = configs.FAILOVER.RETRY;
+    this.reTry = configs.FAILOVER.RE_TRY;
     this.fails = 0;
     this.mailProviders.push(new Sendgrid(reqBody));
     this.mailProviders.push(new Mailgun(reqBody));

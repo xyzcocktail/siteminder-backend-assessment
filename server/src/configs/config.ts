@@ -7,8 +7,8 @@ export const configs = {
   NODE_ENV: process.env.NODE_ENV || 'development',
   PORT: process.env.PORT,
   FAILOVER: {
-    RETRY: 3,
-    RETRY_DELAY: 3000,
+    RE_TRY: 3,
+    RE_TRY_DELAY: 5000,
   },
   SENDGRID: {
     BASE_URL: process.env.SENDGRID_BASE_URL,

@@ -1,6 +1,6 @@
 {
   "name": "siteminder-backend-assessment-server",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "clean": "rm -rf dist",
@@ -12,7 +12,6 @@
     "lint": "./node_modules/.bin/tslint ."
   },
   "dependencies": {
-    "await-to-js": "^2.1.1",
     "axios": "^0.21.1",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
@@ -20,7 +19,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
-    "dottie": "^2.0.2",
+    "ejs": "^3.1.6",
     "express": "^4.16.4",
     "fs": "^0.0.1-security",
     "jest": "^26.6.3",

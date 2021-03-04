@@ -10,6 +10,14 @@ class IndexController {
     }
   };
 
+  public demo = (req: Request, res: Response, next: NextFunction): void => {
+    try {
+      res.render('index.html', { data: [] });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public ping = (req: Request, res: Response, next: NextFunction): void => {
     try {
       res.status(200).json({ message: 'PONG' });

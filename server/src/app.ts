@@ -19,6 +19,7 @@ class App {
     this.env  = 'development';
 
     this.initConfigs();
+    this.initViewEngine();
     this.initMiddlewares();
     this.initRoutes(routes);
     this.initErrorHandling();
@@ -41,12 +42,25 @@ class App {
     }
     this.port = configs.PORT;
     this.env  = configs.NODE_ENV;
+    this.app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
+  }
+
+  private initViewEngine() {
+    // view engine setup
+    this.app.set('views', `${__dirname}/views`);
+    this.app.set('view engine', 'ejs');
+    this.app.engine('html', require('ejs').renderFile);
   }
 
   private initMiddlewares() {
     if (this.env === 'production') {
       this.app.use(morgan('combined', { stream }));
-      this.app.use(cors({ origin: 'siteminder.com', credentials: true }));
+      this.app.use(cors({ origin: true, credentials: true }));
     } else if (this.env === 'development') {
       this.app.use(morgan('dev', { stream }));
       this.app.use(cors({ origin: true, credentials: true }));

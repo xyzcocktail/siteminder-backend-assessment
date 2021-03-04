@@ -1,4 +1,3 @@
-import { configs } from '../../configs/config';
 import HttpClient from './axios_client';
 
 let client: HttpClient;

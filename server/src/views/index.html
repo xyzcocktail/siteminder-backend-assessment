@@ -1,0 +1,53 @@
+<%- include('header.html'); -%>
+
+<div class="container">
+  <div class="py-5 text-center">
+    <h1>SiteMinder Demo Form</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 order-md-1"></div>
+    <div class="col-md-8 order-md-1">
+      <form id="formMailer" method="post" class="needs-validation" novalidate >
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="recipient-to">To</label>
+            <input type="email" class="form-control" id="recipient-to" name="to" placeholder="Email" value="" required>
+            <div class="invalid-feedback">Valid To email is required.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="recipient-cc">Cc</label>
+            <input type="email" class="form-control" id="recipient-cc" name="cc" placeholder="Email" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="recipient-bcc">Bcc</label>
+            <input type="email" class="form-control" id="recipient-bcc" name="bcc" placeholder="Email" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="input-subject">Subject</label>
+            <input type="text" class="form-control" id="input-subject" name="subject" placeholder="Subject" value="" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="input-content">Content</label>
+            <textarea class="form-control" id="input-content" name="content" placeholder="Content" value="" required></textarea>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <button type="submit" id="btnSubmit" class="btn btn-primary btn-lg btn-block" > SEND </button>
+      </form>
+    </div>
+    <div class="col-md-2 order-md-1"></div>
+  </div>
+
+</div>
+
+<%- include('footer.html'); -%>

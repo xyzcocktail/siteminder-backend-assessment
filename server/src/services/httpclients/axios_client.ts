@@ -7,6 +7,7 @@ export default class httpClient {
   protected instance: any;
 
   constructor(baseUrl: string, headers: any) {
+    headers['Access-Control-Allow-Origin'] = '*';
     this.instance = axios.create({
       baseURL: baseUrl,
       headers: headers,
@@ -15,9 +16,12 @@ export default class httpClient {
   }
 
   public responseError(error: any): void {
-    // console.info('** responseError ', error.response.data);
-    logger.error(`Exception : ${(error.message || 'Oops! Something went wrong')}`);
-    throw new HttpException(error.response.status, (error.response.data.message || error.message || 'Oops! Something went wrong'));
+    let errMessage = error.message || 'Oops! Something went wrong';
+    if (error.response && error.response.data && error.response.data.errors) {
+      errMessage = error.response.data.errors.map((error) => Object.values(error.message)).join(', ');
+    }
+    logger.error(`Exception : ${errMessage}`);
+    throw new HttpException(error.response.status, errMessage);
   }
 
   public responseSuccess(response: any): HttpResponse {
