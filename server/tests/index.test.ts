@@ -10,11 +10,7 @@ beforeAll(async () => {
   app = new App([indexRoute]);
 });
 
-afterAll(async () => {
-  await new Promise<void>((resolve) => setTimeout(() => resolve(), 500));
-});
-
-describe('Testing Index: ', () => {
+describe('Testing Index Controller: ', () => {
 
   describe('[GET] /', () => {
     test('should return 200', async () => {
@@ -23,7 +19,7 @@ describe('Testing Index: ', () => {
   });
 
   describe('[GET] /ping', () => {
-    test('should return 200 with response message pong', async () => {
+    test('should return 200 with response message PONG', async () => {
       return request(app.getServer()).get('/ping').then(resp => {
         const result = JSON.parse(resp.text);
         expect(result).toHaveProperty('message', 'PONG');
