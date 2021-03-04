@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import * as request from 'supertest';
 import App from '../src/app';
 import IndexRoute from '../src/routes/index';

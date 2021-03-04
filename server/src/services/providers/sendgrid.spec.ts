@@ -23,7 +23,6 @@ describe('Implements send email via SendGrid API : ', () => {
 
   it('should return 202',  async () => {
     const resp = await sendgrid.sendEmail();
-    console.info(resp);
     expect(resp).toHaveProperty('status', 202);
   });
 

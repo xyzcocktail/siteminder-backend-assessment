@@ -44,10 +44,10 @@ export default class SendgridProvider extends BaseProvider implements Provider {
   };
 
   public async sendEmail(): Promise<HttpResponse> {
-    console.info('** sendEmail [postData] ', this.postData);
+    configs.DEBUG && console.info('** sendEmail [postData] ', this.postData);
     try {
       const response = await this.httpClient.post('mail/send', this.postData);
-      console.info('** response ', response);
+      configs.DEBUG && console.info('** response ', response);
       if (response.status === 200 || response.status === 202) {
         response.data = { providerName: this.providerName };
         response.message = 'Email has been sent successfully!';

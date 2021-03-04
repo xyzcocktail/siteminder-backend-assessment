@@ -3,9 +3,10 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const configs = {
-  DEBUG: true,
-  NODE_ENV: process.env.NODE_ENV || 'development',
   PORT: process.env.PORT,
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  // DEBUG: process.env.NODE_ENV === 'production' ? false : true,
+  DEBUG: false,
   FAILOVER: {
     RE_TRY: 3,
     RE_TRY_DELAY: 5000,

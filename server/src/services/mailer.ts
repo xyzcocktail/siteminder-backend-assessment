@@ -6,12 +6,10 @@ import Mailgun from "./providers/mailgun";
 
 export default class MailService {
   private mailProviders = [];
-  fails: number;
   reTry: number;
 
   constructor(reqBody: MailBody) {
     this.reTry = configs.FAILOVER.RE_TRY;
-    this.fails = 0;
     this.mailProviders.push(new Sendgrid(reqBody));
     this.mailProviders.push(new Mailgun(reqBody));
   }

@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import * as request from 'supertest';
 import App from '../src/app';
 import MailRoute from '../src/routes/mail';
@@ -10,14 +9,18 @@ beforeAll(async () => {
   app = new App([mailRoute]);
 });
 
-// afterAll(async () => {
-//   await new Promise<void>((resolve) => setTimeout(() => resolve(), 500));
-// });
+let reqData = {
+  to: 'jay.jung@outlook.com',
+  subject: '[FAILOVER] TEST EMAIL',
+  content: 'EMAIL BODY'
+};
 
-describe('Create a service that accepts the necessary information and sends emails: ', () => {
-  describe('[GET] /', () => {
-    it('should return 200', async () => {
-      return request(app.getServer()).get('/').expect(200);
+describe('Sends emails: ', () => {
+  describe('Fail over send email ', () => {
+    it('Should return 200 and message', async () => {
+      const resp = await request(app.getServer()).post('/api/mail/send').send(reqData);
+      expect(resp.status).toEqual(200);
+      expect(resp.body).toHaveProperty('message');
     });
   });
 });

@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "tsc",
-    "start": "yarn clean && yarn build && ts-node -r source-map-support/register dist/index.js",
+    "asset": "cp -r ./src/views ./src/public ./dist",
+    "start": "yarn clean && yarn build && yarn run asset && ts-node -r source-map-support/register dist/index.js",
     "dev": "nodemon",
     "test": "jest --verbose",
     "cover": "jest --coverage",
