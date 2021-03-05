@@ -15,12 +15,14 @@ let reqData = {
   content: 'EMAIL BODY'
 };
 
-describe('Sends emails: ', () => {
-  describe('Fail over send email ', () => {
-    it('Should return 200 and message', async () => {
+describe('Testing Mail APIs: ', () => {
+
+  describe('[POST] /api/mail/send ', () => {
+    it('Should return 200 with message', async () => {
       const resp = await request(app.getServer()).post('/api/mail/send').send(reqData);
       expect(resp.status).toEqual(200);
       expect(resp.body).toHaveProperty('message');
     });
   });
+
 });

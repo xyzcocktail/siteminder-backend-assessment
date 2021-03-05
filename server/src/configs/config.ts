@@ -5,7 +5,7 @@ dotenv.config();
 export const configs = {
   PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV || 'development',
-  // DEBUG: process.env.NODE_ENV === 'production' ? false : true,
+  HTTP_TIMEOUT: 3000,
   DEBUG: false,
   FAILOVER: {
     RE_TRY: 3,

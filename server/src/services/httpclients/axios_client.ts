@@ -1,7 +1,8 @@
 import axios from 'axios';
 import HttpResponse from '../../interfaces/response';
 import HttpException from '../../utils/http_exception';
-import { logger } from "../../utils/logger";
+import { configs } from '../../configs/config';
+import { logger } from '../../utils/logger';
 
 export default class httpClient {
   protected instance: any;
@@ -12,6 +13,7 @@ export default class httpClient {
       baseURL: baseUrl,
       headers: headers,
       responseType: 'json',
+      timeout: configs.HTTP_TIMEOUT,
     });
   }
 

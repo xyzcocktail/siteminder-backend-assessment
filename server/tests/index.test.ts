@@ -9,7 +9,7 @@ beforeAll(async () => {
   app = new App([indexRoute]);
 });
 
-describe('Testing Index Controller: ', () => {
+describe('Testing Index Route and Controller: ', () => {
 
   describe('[GET] /', () => {
     test('should return 200', async () => {

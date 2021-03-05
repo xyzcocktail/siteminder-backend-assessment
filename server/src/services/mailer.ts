@@ -10,8 +10,16 @@ export default class MailService {
 
   constructor(reqBody: MailBody) {
     this.reTry = configs.FAILOVER.RE_TRY;
-    this.mailProviders.push(new Sendgrid(reqBody));
-    this.mailProviders.push(new Mailgun(reqBody));
+    const mailgunProvider = new Mailgun(reqBody);
+    const sendgridProvider = new Sendgrid(reqBody);
+    this.setProviders([mailgunProvider, sendgridProvider]);
+  }
+
+  public setProviders(providers: Array<any>) {
+    this.mailProviders = [];
+    providers.forEach(provider => {
+      this.mailProviders.push(provider);
+    });
   }
 
   public async failOverSendmail(): Promise<any> {

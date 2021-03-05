@@ -6,7 +6,7 @@ beforeAll(async () => {
 });
 
 describe('Testing Http Client using Axios', () => {
-  it('should return 200', async () => {
+  it('Should return 200', async () => {
     const resp = await client.get('random');
     expect(resp).toHaveProperty('status', 200);
   });

@@ -2,9 +2,9 @@ import httpClient from '../httpclients/axios_client';
 import MailgunProvider from './mailgun';
 
 let reqData = {
-  to: 'jay.jung@outlook.com, jay.jung@icloud.com',
-  cc: 'jayjung+cc1@ezion.com.au, jayjung+cc2@gmail.com',
-  subject: '[MAILGUN] Test multiple email',
+  to: 'jay.jung@outlook.com',
+  cc: 'jayjung+cc1@gmail.com',
+  subject: '[MAILGUN] Test email',
   content: 'Email body'
 };
 
